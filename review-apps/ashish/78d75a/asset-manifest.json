@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/test-react/review-apps/ashish/78d75a/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/test-react/review-apps/ashish/78d75a/static/js/main.5a6117be.chunk.js",
+    "main.js.map": "/test-react/review-apps/ashish/78d75a/static/js/main.5a6117be.chunk.js.map",
+    "runtime-main.js": "/test-react/review-apps/ashish/78d75a/static/js/runtime-main.bdf6517a.js",
+    "runtime-main.js.map": "/test-react/review-apps/ashish/78d75a/static/js/runtime-main.bdf6517a.js.map",
+    "static/js/2.f551d45b.chunk.js": "/test-react/review-apps/ashish/78d75a/static/js/2.f551d45b.chunk.js",
+    "static/js/2.f551d45b.chunk.js.map": "/test-react/review-apps/ashish/78d75a/static/js/2.f551d45b.chunk.js.map",
+    "static/js/3.65317c75.chunk.js": "/test-react/review-apps/ashish/78d75a/static/js/3.65317c75.chunk.js",
+    "static/js/3.65317c75.chunk.js.map": "/test-react/review-apps/ashish/78d75a/static/js/3.65317c75.chunk.js.map",
+    "index.html": "/test-react/review-apps/ashish/78d75a/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/test-react/review-apps/ashish/78d75a/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.f551d45b.chunk.js.LICENSE.txt": "/test-react/review-apps/ashish/78d75a/static/js/2.f551d45b.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/test-react/review-apps/ashish/78d75a/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bdf6517a.js",
+    "static/js/2.f551d45b.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.5a6117be.chunk.js"
+  ]
+}
