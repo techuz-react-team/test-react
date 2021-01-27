@@ -1,36 +1,70 @@
-# This is a basic workflow to help you get started with Actions
+name: 'React build only on PR'
 
-name: CI
-
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    types: [opened, edited, synchronize]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    name: Build React Site
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Npm Setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Npm Install
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          npm i
+      - name: PR Branch Name
+        uses: mdecoleman/pr-branch-name@1.0.0
+        id: branchname
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: GitHub Environment Variables Action
+        uses: FranzDiebold/github-env-vars-action@v1.2.1
+      - name: Get PR commit trigger SHA
+        uses: bhowell2/github-substring-action@v1.0.0
+        id: prsha
+        with:
+          value: ${{ github.event.pull_request.head.sha }}
+          length_from_start: 6
+      - name: Get short SHA6
+        id: slug
+        env:
+          PRSHA: ${{ steps.prsha.outputs.substring }}
+        run: echo "::set-output name=sha6::$(echo ${PRSHA} | cut -c1-6)"
+      - name: Get PR commit trigger SHA
+        uses: bhowell2/github-substring-action@v1.0.0
+        id: prsha7
+        with:
+          value: ${{ github.event.pull_request.head.sha }}
+          length_from_start: 7
+      - name: Get short SHA7
+        id: slug7
+        env:
+          PRSHA: ${{ steps.prsha7.outputs.substring }}
+        run: echo "::set-output name=sha7::$(echo ${PRSHA} | cut -c1-7)"
+      - name: Modify app prefix in package.json
+        env:
+          SHA: ${{ steps.slug.outputs.sha6 }}
+          BRANCH: ${{ steps.branchname.outputs.branch }}
+          SLUG: ${{ env.GITHUB_REPOSITORY_NAME }}
+        run: |
+          sed -i '/homepage/c\  \"homepage\" : \"/'${SLUG}/review-apps/${BRANCH}/${SHA}'\",' package.json
+      - name: Build and deploy to gh-pages
+        uses: sauloxd/review-apps@v1.3.3
+        with:
+          build-cmd: 'npm run build'
+          branch: 'gh-pages'
+          dist: 'build'
+          slug: 'review-apps'
+      - name: Comment URL on PR
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          msg: 'https://${{env.GITHUB_REPOSITORY_OWNER_SLUG}}.github.io/${{env.GITHUB_REPOSITORY_NAME}}/review-apps/${{steps.branchname.outputs.branch}}/${{steps.slug.outputs.sha6}}?version=${{steps.slug7.outputs.sha7}}'
+          check_for_duplicate_msg: false
