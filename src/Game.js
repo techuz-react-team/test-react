@@ -36,7 +36,7 @@ class Game extends React.Component {
 
   handleClick(i, row, col) {
     // Operation
-    const history = this.state.history;
+    const {history} = this.state;
     const current = history[history.length - 1];
     const squares = current.squares.slice();
     squares[i] = this.state.xIsNext === true ? 'X' : 'O';
