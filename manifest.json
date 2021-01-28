@@ -21,9 +21,9 @@
     "apps": [
       {
         "name": "review-apps",
-        "headCommitId": "cff1491b8143e359457ef5edf9cdaf542d5b5cb7",
-        "updatedAt": "2021-01-28T12:01:46.671Z",
-        "href": "review-apps/vimpy/cff149",
+        "headCommitId": "e01c58b2d761487715324f385096c8ef7c14d2e5",
+        "updatedAt": "2021-01-28T12:06:36.424Z",
+        "href": "review-apps/vimpy/e01c58",
         "pullRequestUrl": "https://github.com/techuz-react-team/test-react/pull/2"
       }
     ]
