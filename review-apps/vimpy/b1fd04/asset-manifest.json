@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/test-react/review-apps/vimpy/b1fd04/static/css/main.53fd6b46.chunk.css",
+    "main.js": "/test-react/review-apps/vimpy/b1fd04/static/js/main.56e4fc70.chunk.js",
+    "main.js.map": "/test-react/review-apps/vimpy/b1fd04/static/js/main.56e4fc70.chunk.js.map",
+    "runtime-main.js": "/test-react/review-apps/vimpy/b1fd04/static/js/runtime-main.40abe799.js",
+    "runtime-main.js.map": "/test-react/review-apps/vimpy/b1fd04/static/js/runtime-main.40abe799.js.map",
+    "static/js/2.ec6a2051.chunk.js": "/test-react/review-apps/vimpy/b1fd04/static/js/2.ec6a2051.chunk.js",
+    "static/js/2.ec6a2051.chunk.js.map": "/test-react/review-apps/vimpy/b1fd04/static/js/2.ec6a2051.chunk.js.map",
+    "static/js/3.bac8b506.chunk.js": "/test-react/review-apps/vimpy/b1fd04/static/js/3.bac8b506.chunk.js",
+    "static/js/3.bac8b506.chunk.js.map": "/test-react/review-apps/vimpy/b1fd04/static/js/3.bac8b506.chunk.js.map",
+    "index.html": "/test-react/review-apps/vimpy/b1fd04/index.html",
+    "static/css/main.53fd6b46.chunk.css.map": "/test-react/review-apps/vimpy/b1fd04/static/css/main.53fd6b46.chunk.css.map",
+    "static/js/2.ec6a2051.chunk.js.LICENSE.txt": "/test-react/review-apps/vimpy/b1fd04/static/js/2.ec6a2051.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.40abe799.js",
+    "static/js/2.ec6a2051.chunk.js",
+    "static/css/main.53fd6b46.chunk.css",
+    "static/js/main.56e4fc70.chunk.js"
+  ]
+}
