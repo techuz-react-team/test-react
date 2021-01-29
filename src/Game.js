@@ -19,7 +19,7 @@ const calculateWinner = (squares) => {
       // console.log('squares[b]',squares[b])
       // console.log('squares[c]',squares[c])
       const winnerRow = winPosibility[i];
-      if (squares[a] && squares[a] == squares[b] && squares[a] == squares[c]) {
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
           //return squares[a];
         //   const winner = state.xIsNext ? '0' : 'X';
         //  console.log('winner',winner)
