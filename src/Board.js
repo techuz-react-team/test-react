@@ -9,15 +9,14 @@ class Board extends React.Component {
     for (let i = 0; i < row; i += 1) {
       const columns = [];
       for (let j = 0; j < col; j += 1) {
-        columns.push(this.renderSquare(cellCounter++));
+        columns.push(this.renderSquare(cellCounter++, i+1, j+1));
       }
       board.push(<div key={i} className="board-row">{columns}</div>);
     }
-
     return board;
   }
 
-  renderSquare(i) {
+  renderSquare(i, row, col) {
     const winnerClass =
       this.props.winnerSquares &&
       (this.props.winnerSquares[0] === i ||
@@ -31,7 +30,7 @@ class Board extends React.Component {
         winnerClass={winnerClass}
         key={i}
         value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
+        onClick={() => this.props.onClick(i, row, col)}
       />
     );
   }
@@ -40,3 +39,5 @@ class Board extends React.Component {
     return <div>{this.createBoard(3, 3)}</div>;
   }
 }
+
+export default Board;
